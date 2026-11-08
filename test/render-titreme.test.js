@@ -18,7 +18,7 @@ test("titreme: her efekt ve yonde kesirli pikselli perspective kullanilir, tek k
     const { argv, vf: f } = vf(efekt, zin);
     assert.ok(!/zoompan/.test(f), efekt + " zoompan kullanmamali");
     assert.match(f, /loop=loop=89:size=1:start=0,setpts=N\/\(30\*TB\),fps=30,perspective=/);
-    assert.match(f, /interpolation=cubic:eval=frame,scale=1080:1920/);
+    assert.match(f, /interpolation=linear:eval=frame,scale=1080:1920/);
     assert.ok(!argv.includes("-loop"), "girdi tek kare beslenir");
     assert.equal(argv[argv.indexOf("-frames:v") + 1], "90");
   }
