@@ -209,5 +209,5 @@ test("render: mp4 gorsel uzantisi sayilir; klipArgv video icin stream_loop + kir
   const vf = argv[argv.indexOf("-vf") + 1];
   assert.match(vf, /crop=1080:1920/); assert.ok(!/zoompan/.test(vf));
   assert.equal(argv[argv.indexOf("-frames:v") + 1], "90");
-  assert.ok(K.klipArgv(ayar, { yol: "a.jpg", kare: 90, zin: true }, { ara: [] }, 2).join(" ").includes("zoompan"));
+  assert.ok(K.klipArgv(ayar, { yol: "a.jpg", kare: 90, zin: true }, { ara: [] }, 2).join(" ").includes("perspective="));
 });

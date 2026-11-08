@@ -162,7 +162,7 @@ test("dusukBellekArgv: klip argv'sindeki eski -threads kaldirilir, var olan -x26
   const sonGirdi = d.lastIndexOf("-i");
   assert.deepEqual(d.map((a, i) => (a === "-threads" && i > sonGirdi ? d[i + 1] : null)).filter(Boolean), ["2"], "eski -threads degeri kalmamali");
   assert.equal(degeri(d, "-frames:v"), "150", "kare sayisi ayni");
-  assert.ok(d.some(a => /zoompan=.*s=1080x1920:fps=30/.test(a)), "cozunurluk/kare hizi filtresi ayni");
+  assert.ok(d.some(a => /fps=30,perspective=.*scale=1080:1920/.test(a)), "cozunurluk/kare hizi filtresi ayni");
 
   const birlesik = F.dusukBellekArgv(["-i", "a.mp4", "-c:v", "libx264", "-crf", "18", "-x264-params", "keyint=60", "o.mp4"], 1);
   assert.equal(degeri(birlesik, "-x264-params"), "keyint=60:rc-lookahead=10:sync-lookahead=0");
